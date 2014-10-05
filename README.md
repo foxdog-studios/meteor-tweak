@@ -30,17 +30,9 @@ var param = Tweak.create({storage: 'remote'}).fromSchema({
 });
 
 Template.body.helpers({
-  param: function () {
-    return param;
-  },
+  param: param,
   value: function () {
     return param.getValue();
-  }
-});
-
-Template.body.events({
-  'changed input, input input': function (event) {
-    return param.setValue(event.target.value);
   }
 });
 ```
