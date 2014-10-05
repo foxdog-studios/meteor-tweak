@@ -1,0 +1,22 @@
+<template name="example">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well">
+          <canvas></canvas>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <form role="form">
+            {{> groupParameter param=circle}}
+          </form>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <pre>{{json}}</pre>
+      </div>
+    </div>{{!-- /.row --}}
+  </div>{{!-- /.container --}}
+</template>
+
