@@ -1,8 +1,8 @@
 Package.describe({
   name: 'fds:tweak',
-  summary: 'Reactive parameter tweaking',
+  summary: "[DON'T USE] Parameter tweaking made fun",
   version: '0.0.0',
-  git: " \* Fill me in! *\ "
+  git: "https://github.com/foxdog-studios/meteor-tweak.git"
 });
 
 Package.onUse(function(api) {
