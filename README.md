@@ -22,19 +22,24 @@ __example.html__
 ```
 
 __example.coffee__
-```CoffeeScript
-param = Tweak.create(storage: 'remote').fromSchema
-  name: 'text'
-  type: 'string'
+```JavaScript
+var param = Tweak.create({storage: 'remote'}).fromSchema({
+  name: 'text',
+  type: 'string',
   value: 'Hello, World!'
+});
 
-Template.body.helpers
-  text: ->
+Template.body.helpers({
+  text: function () {
     param.getValue()
+  }
+});
 
-Template.body.events
-  'changed input, input input': (event) ->
-    param.setValue(event.target.value)
+Template.body.events({
+  'changed input, input input': function (event) {
+    param.setValue(event.target.value);
+  }
+});
 ```
 
 
@@ -60,11 +65,48 @@ Each node in the tree have three attributes:
 
 #### _Parameter types_
 
-##### `group`
 
-##### `string`
+##### _string_
 
-##### `number'
+```JSON
+{
+    "name": "surname",
+    "type": "text",
+    "value": "Jamie"
+}
+```
+
+##### _number_
+
+```JSON
+{
+   "name": "radius",
+   "type": "number",
+   "value": 1
+}
+```
+
+
+##### _group_
+
+```JSON
+{
+  "name": "rectangle",
+  "type": "group",
+  "value": [
+    {
+      "name": "width",
+      "type": "number",
+      "value": 1
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "value": 1
+    }
+  ]
+}
+```
 
 ### Tweak
 
@@ -93,4 +135,77 @@ An instance of `TweakAPI`
 
 ### TweakAPI
 
-#### _instance_.fromSchema(schema)
+
+#### _instance_.fromSchema(_schema_) Anywhere
+
+
+##### Parameters
+
+*   `schema` (_Schema_, required):
+
+
+##### Returns
+
+A parameter tree as described by the schema.
+
+
+### Parameter
+
+
+#### _instance_.getValue() Reactive, Anywhere
+
+#### _instance_.setValue(value) Anywhere
+
+Set the parameter's value to `value`.
+
+
+##### Parameters
+
+*   `value` (_Type dependent_, required): The value to assign to the parameter.
+            The set of acceptbale values is dependent on the parameter's type
+            (see Parameter types).
+
+##### Returns
+
+__Nothing__
+
+
+### GroupParameter
+
+_Inherits from `Parameter`_
+
+
+#### _instance_.getParameter(name) Reactive, Anywhere
+
+Get a par
+
+##### Parameters
+
+#### _instance_.getParameters() Reactive, Anywhere
+
+##### Parameters
+
+#### _instance_.append(paramater) Anywhere
+
+```JavaScript
+tweak = Tweak.create();
+
+group = tweak.fromSchema({
+  name: 'circle',
+  type: 'group',
+  value: []
+});
+
+radius = group.fromSchema({
+    name: 'radius',
+    type: 'number',
+    value: 1
+});
+
+value = group.getParameter('radius').getValue();
+
+console.log(value);  // => 1
+```
+
+#### _instance_.remove(parameter) Anywhere
+
