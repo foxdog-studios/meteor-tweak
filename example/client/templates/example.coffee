@@ -24,7 +24,7 @@ Template.example.created = ->
       ]
     ]
 
-  tweak = Tweak.create storage: 'remote'
+  tweak = Tweak.create storage: 'local'
   @_circle = tweak.fromSchema pod
 
 

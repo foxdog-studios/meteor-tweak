@@ -42,10 +42,10 @@ Package.onUse(function(api) {
 
   api.addFiles(
     [
+      'client/templates/parameter.html',
+      'client/templates/parameter.coffee',
       'client/templates/group_parameter.html',
       'client/templates/group_parameter.coffee',
-      'client/templates/group_parameter_parameter.html',
-      'client/templates/group_parameter_parameter.coffee',
       'client/templates/number_parameter.html',
       'client/templates/number_parameter.coffee',
       'client/templates/string_parameter.html',

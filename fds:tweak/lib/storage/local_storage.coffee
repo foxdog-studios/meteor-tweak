@@ -1,5 +1,5 @@
 class @LocalStorage
-  constuctor: (@_name, value) ->
+  constructor: (@_name, value) ->
     @_value = ReactiveVar value
 
   get: =>

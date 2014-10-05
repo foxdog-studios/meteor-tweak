@@ -16,14 +16,16 @@ $ meteor add fds:tweak
 __example.html__
 ```Handlebars
 <body>
-  {{> stringParameter param=param}}
+  {{> parameter param}}
   <p>{{value}}</p>
 </body>
 ```
 
 __example.coffee__
 ```JavaScript
-var param = Tweak.create({storage: 'remote'}).fromSchema({
+var tweak = Tweam.create({storage: 'remote'});
+
+var param = tweak.fromSchema({
   name: 'text',
   type: 'string',
   value: 'Hello, World!'
@@ -43,19 +45,23 @@ Template.body.helpers({
 ### _Schema_
 
 A schema is a _plain old data_ (POD) object that describes a tree of parameters.
-Each node in the tree have three attributes:
+Each parameter in the tree has (at least) three attributes:
 
 *   `name` (String, required): The name of the parameter. For example, the name
-           a parameter storing the radius of a circle could be `'radius'`.
+           a parameter storing the radius of a circle could be `'radius'`. Names
+           must be alphenumeric.
 
 *   `type` (String, required): The type of the parameter (See Parameter types).
            For example, the `type` of a parameter storing the radius of a circle
            could be `'number'`.
 
-*   `value` (Any, required): The initial or defualt value of the parameter.
+*   `value` (_Type dependent_, required): The initial or defualt value of the parameter.
             Exactly what a parameter's value can be depends on the parameter's
             type. For example, the `value` of a parameter storing the radius of
             a circle could be `2.5`.
+
+A parameter's _full name_ is it's name prefixed by the full name of the group
+it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 
 
 #### _Parameter types_
@@ -65,9 +71,9 @@ Each node in the tree have three attributes:
 
 ```JSON
 {
-    "name": "surname",
-    "type": "text",
-    "value": "Jamie"
+  "name": "surname",
+  "type": "text",
+  "value": "Jamie"
 }
 ```
 
@@ -75,9 +81,9 @@ Each node in the tree have three attributes:
 
 ```JSON
 {
-   "name": "radius",
-   "type": "number",
-   "value": 1
+  "name": "radius",
+  "type": "number",
+  "value": 1
 }
 ```
 
@@ -114,6 +120,7 @@ Create an new instance of Tweak, configured by `options`
 ##### Parameters
 
 *   `options` (Object, optional): With properties;
+
     *    `storage` (String, optional): Specifies where to store parameter
          values. Either `'local'` or `'remote'`. If `'local'`, values are
          stored locally and changes __aren't__ be seen by other users. If
@@ -192,9 +199,9 @@ group = tweak.fromSchema({
 });
 
 radius = group.fromSchema({
-    name: 'radius',
-    type: 'number',
-    value: 1
+  name: 'radius',
+  type: 'number',
+  value: 1
 });
 
 value = group.getParameter('radius').getValue();
