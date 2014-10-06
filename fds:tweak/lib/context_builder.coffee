@@ -12,6 +12,7 @@ class @ContextBuilder
       BooleanParameterBuilder
       GroupParameterBuilder
       NumberParameterBuilder
+      RangeParameterBuilder
       StringParameterBuilder
     ]
 

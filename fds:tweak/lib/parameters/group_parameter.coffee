@@ -26,9 +26,6 @@ class @GroupParameter extends AbstractParameter
     @_structure.depend()
     @_params.slice()
 
-  getClass: =>
-    GroupParameter
-
   @getType: ->
     'group'
 
@@ -41,11 +38,6 @@ class @GroupParameter extends AbstractParameter
       param.toJSONValue()
     pod
 
-  clone: =>
-    new @getClass() @getName()
-
   equals: (other) =>
     Utils.throwNotImplemented 'equals'
-
-
 

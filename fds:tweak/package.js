@@ -27,11 +27,12 @@ Package.onUse(function(api) {
 
     'lib/parameters/parameter_name.coffee',
     'lib/parameters/abstract_parameter.coffee',
-    'lib/parameters/abstract_value_parameter.coffee',
-    'lib/parameters/boolean_parameter.coffee',
-    'lib/parameters/number_parameter.coffee',
-    'lib/parameters/string_parameter.coffee',
+      'lib/parameters/abstract_value_parameter.coffee',
+        'lib/parameters/boolean_parameter.coffee',
+        'lib/parameters/number_parameter.coffee',
+        'lib/parameters/string_parameter.coffee',
     'lib/parameters/group_parameter.coffee',
+    'lib/parameters/range_parameter.coffee',
 
     'lib/builders/parameter_builder_factory.coffee',
     'lib/builders/parameter_builder.coffee',
@@ -39,6 +40,7 @@ Package.onUse(function(api) {
     'lib/builders/abstract_value_parameter_builder.coffee',
     'lib/builders/boolean_parameter_builder.coffee',
     'lib/builders/number_parameter_builder.coffee',
+    'lib/builders/range_parameter_builder.coffee',
     'lib/builders/string_parameter_builder.coffee',
     'lib/builders/group_parameter_builder.coffee',
   ]);
@@ -55,6 +57,8 @@ Package.onUse(function(api) {
       'client/templates/number_parameter.coffee',
       'client/templates/string_parameter.html',
       'client/templates/string_parameter.coffee',
+      'client/templates/range_parameter.html',
+      'client/templates/range_parameter.coffee',
     ],
     'client'
   );

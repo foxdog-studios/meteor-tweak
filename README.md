@@ -106,7 +106,7 @@ it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 #### _Parameter types_
 
 
-##### _boolean_
+##### boolean
 
 ```JSON
 {
@@ -117,7 +117,7 @@ it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 ```
 
 
-##### _number_
+##### number
 
 ```JSON
 {
@@ -128,7 +128,7 @@ it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 ```
 
 
-##### _string_
+##### string
 
 ```JSON
 {
@@ -138,8 +138,23 @@ it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 }
 ```
 
+##### range
 
-##### _group_
+```JSON
+{
+  "name": "red"
+  "type": "range",
+  "value": {
+    "min": 0,
+    "value": 128,
+    "max": 255,
+    "step": 1
+  }
+}
+```
+
+
+##### group
 
 ```JSON
 {

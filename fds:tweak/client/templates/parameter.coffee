@@ -6,6 +6,7 @@ addTemplate = (paramKlass, templateName) ->
 addTemplate BooleanParameter, 'booleanParameter'
 addTemplate GroupParameter  , 'groupParameter'
 addTemplate NumberParameter , 'numberParameter'
+addTemplate RangeParameter  , 'rangeParameter'
 addTemplate StringParameter , 'stringParameter'
 
 
