@@ -17,9 +17,6 @@ class @AbstractValueParameter extends AbstractParameter
     pod.value = @getValue()
     pod
 
-  clone: =>
-    new @getClass() @getValue()
-
   equals: (other) =>
-    @getValue.get() == other.getValue()
+    @getValue.getValue() == other.getValue()
 

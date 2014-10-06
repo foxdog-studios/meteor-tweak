@@ -36,6 +36,7 @@ Package.onUse(function(api) {
     'lib/builders/parameter_builder_factory.coffee',
     'lib/builders/parameter_builder.coffee',
     'lib/builders/abstract_parameter_builder.coffee',
+    'lib/builders/abstract_value_parameter_builder.coffee',
     'lib/builders/boolean_parameter_builder.coffee',
     'lib/builders/number_parameter_builder.coffee',
     'lib/builders/string_parameter_builder.coffee',

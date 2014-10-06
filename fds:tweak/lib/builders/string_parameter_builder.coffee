@@ -1,11 +1,4 @@
-class @StringParameterBuilder extends AbstractParameterBuilder
-  build: ->
-    new StringParameter(
-      @getContext().createStorage(@getName()),
-      @getName(),
-      @getPOD().value
-    )
-
+class @StringParameterBuilder extends AbstractValueParameterBuilder
   @getParameterClass: ->
     StringParameter
 

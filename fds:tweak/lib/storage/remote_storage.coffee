@@ -2,11 +2,14 @@ Parameters = new Meteor.Collection 'fds:tweak:parameters'
 
 
 class @RemoteStorage
-  constructor: (@_name, value) ->
+  constructor: (@_name, @_type, value) ->
     @set value
 
   set: (value) =>
-    Meteor.call 'fds:tweak:setValue', @_name.getFullName(), value
+    callback = (error, result) ->
+      console.log error if error?
+      console.log result if result?
+    Meteor.call 'fds:tweak:setValue', @_name, @_type, value, callback
 
   get: =>
     param = Parameters.findOne
@@ -18,12 +21,15 @@ class @RemoteStorage
 
 
 Meteor.methods
-  'fds:tweak:setValue': (name, value) ->
-    check name, String
+  'fds:tweak:setValue': (name, type, value) ->
+    check name, ParameterName
+    check type, String
     check value, Match.Any
     Parameters.upsert
-      name: name
+      name: name.getFullName()
     ,
       $set:
+        type: type
         value: value
+    return
 

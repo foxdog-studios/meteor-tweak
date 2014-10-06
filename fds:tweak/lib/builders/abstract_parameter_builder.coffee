@@ -1,6 +1,6 @@
 class @AbstractParameterBuilder
-  constructor: (@_ctx, parentName, @_pod) ->
-    @_name = parentName.join @_pod.name
+  constructor: (@_ctx, parentName, @_schema) ->
+    @_name = parentName.join @_schema.name
 
   getContext: =>
     @_ctx
@@ -8,11 +8,14 @@ class @AbstractParameterBuilder
   getName: =>
     @_name
 
-  getPOD: =>
-    @_pod
+  getSchema: =>
+    @_schema
 
   build: =>
     Utils.throwNotImplemented 'build'
+
+  getParameterClass: =>
+    @constructor.getParameterClass()
 
   @getParameterClass: ->
     Utils.throwNotImplemented 'getParameterClass'

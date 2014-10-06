@@ -1,11 +1,4 @@
-class @NumberParameterBuilder extends AbstractParameterBuilder
-  build: ->
-    new NumberParameter(
-      @getContext().createStorage(@getName()),
-      @getName(),
-      @getPOD().value
-    )
-
+class @NumberParameterBuilder extends AbstractValueParameterBuilder
   @getParameterClass: ->
     NumberParameter
 

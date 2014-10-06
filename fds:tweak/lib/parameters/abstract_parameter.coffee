@@ -10,11 +10,8 @@ class @AbstractParameter
   getFullName: =>
     @_name.getFullName()
 
-  getClass: =>
-    Utils.throwNotImplemented '@getClass'
-
   getType: =>
-    @getClass().getType()
+    @constructor.getType()
 
   @getType: ->
     Utils.throwNotImplemented 'getType'
@@ -23,7 +20,7 @@ class @AbstractParameter
   # = EJSON interface ========================================================
 
   typeName: =>
-    EJSON_TYPE_NAME
+    EJSON_PARAMETER
 
   toJSONValue: =>
     name: @getName()

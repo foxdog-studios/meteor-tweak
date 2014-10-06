@@ -1,11 +1,4 @@
-class @BooleanParameterBuilder extends AbstractParameterBuilder
-  build: =>
-    new BooleanParameter(
-      @getContext().createStorage(),
-      @getName(),
-      @getPOD().value
-    )
-
+class @BooleanParameterBuilder extends AbstractValueParameterBuilder
   @getParameterClass: ->
     BooleanParameter
 
