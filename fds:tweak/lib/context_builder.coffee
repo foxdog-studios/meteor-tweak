@@ -9,6 +9,7 @@ class @ContextBuilder
 
   _buildParameterBuilderFactory: ->
     new ParameterBuilderFactory [
+      BooleanParameterBuilder
       GroupParameterBuilder
       NumberParameterBuilder
       StringParameterBuilder

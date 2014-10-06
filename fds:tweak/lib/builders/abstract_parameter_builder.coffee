@@ -11,6 +11,9 @@ class @AbstractParameterBuilder
   getPOD: =>
     @_pod
 
+  build: =>
+    Utils.throwNotImplemented 'build'
+
   @getParameterClass: ->
     Utils.throwNotImplemented 'getParameterClass'
 
