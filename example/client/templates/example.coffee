@@ -1,10 +1,8 @@
-Template.example.created = ->
-  @_circle = @data.param
-
-
 Template.example.rendered = ->
   canvas = @find 'canvas'
   ctx = canvas.getContext '2d'
+  circle = @data.param
+
   @_computation = Tracker.autorun =>
     w = canvas.width
     h = canvas.height
@@ -13,8 +11,8 @@ Template.example.rendered = ->
     m2 = Math.min w2, h2
 
 
-    radius = @_circle.getParam('radius').getValue() / 100
-    color = @_circle.getParam 'color'
+    radius = circle.getParam('radius').getValue() / 100
+    color = circle.getParam 'color'
     r = color.getParam('red').getValue()
     g = color.getParam('green').getValue()
     b = color.getParam('blue').getValue()
@@ -24,18 +22,23 @@ Template.example.rendered = ->
     ctx.arc w2, h2, m2 * radius, 0, 2 * Math.PI, false
     ctx.fillStyle = ctx.strokeStyle = "rgba(#{ r }, #{ g }, #{ b }, 1)"
 
-    if @_circle.getParam('fill').getValue()
+    if circle.getParam('fill').getValue()
       ctx.fill()
     else
       ctx.stroke()
 
 
 Template.example.helpers
-  circle: ->
-    Template.instance()._circle
-
   json: ->
-    JSON.stringify Template.instance()._circle.toJSONValue(), null, '  '
+    JSON.stringify @param.toJSONValue(), null, '  '
+
+  show: ->
+    Session.equals 'fds:tweak:show', true
+
+
+Template.example.events
+  'click .tweak-show': (event, template) ->
+    Session.set 'fds:tweak:show', true
 
 
 Template.example.destroyed = ->

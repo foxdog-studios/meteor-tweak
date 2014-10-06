@@ -1,9 +1,11 @@
 <template name="groupParameter">
   <fieldset>
     <legend>{{legend}}</legend>
-    {{#each params}}
-      {{> parameter}}
-    {{/each}}
+    <div class="tweak tweak-fieldset-fields">
+      {{#each params}}
+        {{> parameter}}
+      {{/each}}
+    </div>
   </fieldset>
 </template>
 

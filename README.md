@@ -79,9 +79,17 @@ in a Meteor project.
 7.  Read the rest of the documentation.
 
 
-## Documentation
+## Templates
 
-### _Schema_
+*   `{{> parameter param}}`
+
+*   `{{> parameterPanel param}}`: Show and hide the panel by settings the
+    session variable `'fds:tweak:show'` to `true` and `false` respectively.
+
+    Default: `true`
+
+
+## Schema
 
 A schema is a _plain old data_ (POD) object that describes a tree of parameters.
 Each parameter in the tree has (at least) three attributes:

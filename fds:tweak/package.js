@@ -1,7 +1,7 @@
 Package.describe({
   name: 'fds:tweak',
   summary: "[DON'T USE] Parameter tweaking made fun",
-  version: '0.0.4',
+  version: '0.0.5',
   git: "https://github.com/foxdog-studios/meteor-tweak.git"
 });
 
@@ -10,6 +10,7 @@ Package.onUse(function(api) {
   api.use([
     'coffeescript',
     'ejson',
+    'less',
     'reactive-var',
     'templating',
   ]);
@@ -47,6 +48,7 @@ Package.onUse(function(api) {
 
   api.addFiles(
     [
+      'client/style.less',
       'client/templates/parameter.html',
       'client/templates/parameter.coffee',
       'client/templates/boolean_parameter.html',
@@ -59,6 +61,8 @@ Package.onUse(function(api) {
       'client/templates/string_parameter.coffee',
       'client/templates/range_parameter.html',
       'client/templates/range_parameter.coffee',
+      'client/templates/parameter_panel.html',
+      'client/templates/parameter_panel.coffee',
     ],
     'client'
   );

@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
+
+@bg-color: rgb(0, 0, 0);
+@font-size: 9pt;
+@font-size-large: @font-size + 2pt;
+@padding: 5px;
+
+.tweak {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: @font-size;
+
+  button {
+    background-color: #2dabf9;
+    border: none;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  legend {
+    border: none;
+    color: inherit;
+    font-size: @font-size-large;
+    margin: 0px;
+    padding-left: @padding;
+  }
+}
+
+.tweak-panel {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background-color: @bg-color;
+  opacity: 0.5;
+  overflow-y: scroll;
+  padding: 10px;
+
+  -webkit-transition: opacity 0.1s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2dabf9;
+  }
+}
+
+.tweak-panel-parameters {
+  margin-top: @padding;
+
+  > fieldset {
+    margin-left: 0px;
+  }
+}
+
+.tweak-fieldset-fields {
+  padding-top: @padding;
+  padding-left: @padding;
+  border-left-color: white;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-top-color: white;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+

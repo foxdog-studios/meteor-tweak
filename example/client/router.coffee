@@ -1,7 +1,5 @@
 tweak = Tweak.create storage: 'remote'
 
-color =
-
 param = tweak.fromSchema
   name: 'circle'
   type: 'group'
@@ -64,4 +62,10 @@ Router.map ->
         param: param
       else
         null
+
+    onBeforeAction: ->
+      Session.setDefault 'fds:tweak:show', true
+
+    onStop: ->
+      Session.set 'fds:tweak:show'
 

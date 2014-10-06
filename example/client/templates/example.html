@@ -1,22 +1,23 @@
 <template name="example">
   <div class="container">
+    {{#unless show}}
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary tweak-show">Show</button>
+        </div>
+      </div>
+    {{/unless}}
     <div class="row">
       <div class="col-md-4">
         <div class="well">
           <canvas></canvas>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="well">
-          <form role="form">
-            {{> parameter circle}}
-          </form>
-        </div>
-      </div>
-      <div class="col-md-5">
+      <div class="col-md-8">
         <pre>{{json}}</pre>
       </div>
     </div>{{!-- /.row --}}
   </div>{{!-- /.container --}}
+  {{> parameterPanel param}}
 </template>
 
