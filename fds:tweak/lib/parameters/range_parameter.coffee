@@ -12,6 +12,9 @@ class @RangeParameter extends AbstractParameter
   getMin: =>
     @_min.getValue()
 
+  setMin: (min) =>
+    @_min.setValue min
+
   getValue: =>
     @_value.getValue()
 
@@ -21,8 +24,14 @@ class @RangeParameter extends AbstractParameter
   getMax: =>
     @_max.getValue()
 
+  setMax: (max) =>
+    @_max.setValue max
+
   getStep: =>
     @_step.getValue()
+
+  setStep: (step) =>
+    @_step.setValue step
 
   @getType: ->
     'range'
