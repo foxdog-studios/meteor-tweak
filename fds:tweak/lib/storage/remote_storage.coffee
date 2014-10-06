@@ -1,9 +1,6 @@
 COLLECTION_NAME = 'fds:tweak:parameters'
 
-Parameters = new Meteor.Collection COLLECTION_NAME
-
-if Meteor.isClient
-  Meteor.subscribe COLLECTION_NAME
+@Parameters = new Meteor.Collection COLLECTION_NAME
 
 if Meteor.isServer
   Meteor.publish COLLECTION_NAME, ->

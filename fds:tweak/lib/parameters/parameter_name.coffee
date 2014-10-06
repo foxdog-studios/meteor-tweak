@@ -12,9 +12,14 @@ class @ParameterName
   getFullName: =>
     @_parts.join SEP
 
+  getGroupNames: =>
+    @_parts.slice 0, -1
+
   join: (newParts...) =>
     new ParameterName @_parts..., newParts...
 
+  @parse: (name) ->
+    new this (name.split SEP)...
 
   # = EJSON Interface ========================================================
 

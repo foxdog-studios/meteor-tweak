@@ -1,35 +1,5 @@
 Template.example.created = ->
-  pod =
-    name: 'circle'
-    type: 'group'
-    value: [
-      name: 'radius'
-      type: 'number'
-      value: 0
-    ,
-      name: 'fill'
-      type: 'boolean'
-      value: true
-    ,
-      name: 'color'
-      type: 'group'
-      value: [
-        name: 'red'
-        type: 'number'
-        value: 0
-      ,
-        name: 'green'
-        type: 'number'
-        value: 0
-      ,
-        name: 'blue'
-        type: 'number'
-        value: 0
-      ]
-    ]
-
-  tweak = Tweak.create storage: 'remote'
-  @_circle = tweak.fromSchema pod
+  @_circle = @data.param
 
 
 Template.example.rendered = ->
