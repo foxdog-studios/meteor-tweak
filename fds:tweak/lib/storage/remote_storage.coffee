@@ -1,4 +1,13 @@
-Parameters = new Meteor.Collection 'fds:tweak:parameters'
+COLLECTION_NAME = 'fds:tweak:parameters'
+
+Parameters = new Meteor.Collection COLLECTION_NAME
+
+if Meteor.isClient
+  Meteor.subscribe COLLECTION_NAME
+
+if Meteor.isServer
+  Meteor.publish COLLECTION_NAME, ->
+    Parameters.find()
 
 
 class @RemoteStorage
