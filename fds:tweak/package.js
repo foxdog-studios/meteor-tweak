@@ -1,7 +1,7 @@
 Package.describe({
   name: 'fds:tweak',
   summary: "[DON'T USE] Parameter tweaking made fun",
-  version: '0.0.2',
+  version: '0.0.3',
   git: "https://github.com/foxdog-studios/meteor-tweak.git"
 });
 
