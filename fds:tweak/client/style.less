@@ -1,16 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
 @bg-color: rgb(0, 0, 0);
-@bg-color-light: lighten(@bg-color, 25%);
+@bg-color-light: lighten(@bg-color, 90%);
 
-@font-size: 9pt;
-@font-size-large: @font-size + 2pt;
+@font-size: 1em;
+@font-size-large: @font-size;
 
 @padding: 5px;
 
 
 .tweak {
-  color: rgba(255, 255, 255, 1);
+  color: @bg-color-light;
   font-family: 'Share Tech Mono', monospace;
   font-size: @font-size;
 
@@ -27,29 +27,33 @@
 
   input[type="number"] {
     background-color: @bg-color-light;
+    color: @bg-color;
     border: none;
-    width: 4em;
-    padding: @padding;
-
+    padding: 0px;
+    height: 1.5em;
+    width: 200px;
+    text-align: right;
   }
 
   input[type="range"] {
     display: inline;
-    width: auto;
+    margin: 0px;
+    width: 200px;
+
+    @height: 1.5em;
 
     -webkit-appearance: none;
     border-radius: 0px;
-    box-shadow: inset 0 0 5px #333;
-    background-color: #999;
-    height: 10px;
+    background-color: @bg-color-light;
+    height: @height;
     vertical-align: middle;
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none !important;
       border-radius: 0px;
-      background-color: white;
-      height: 10px;
-      width: 20px;
+      background-color: @bg-color;
+      height: @height;
+      width: 0.5em;
     }
   }
 
@@ -57,7 +61,8 @@
     font-weight: normal;
     margin: 0px;
     text-align: right;
-    width: 3em;
+    width: 50px;
+    white-space: nowrap;
   }
 
   legend {
@@ -69,11 +74,12 @@
   }
 
   output {
-    color: inherit;
-    display: inline;
+    display: inline-block;
+    color: @bg-color-light;
     font-size: inherit;
-    width: 4em;
+    padding: 0px;
     text-align: right;
+    width: 2em;
   }
 }
 
@@ -121,14 +127,20 @@
   }
 }
 
+.tweak-parameter {
+  display: block;
+}
+
 .tweak-fieldset-fields {
-  padding-top: @padding;
-  padding-left: @padding;
-  border-left-color: white;
+  border-left-color: @bg-color-light;
   border-left-style: solid;
   border-left-width: 1px;
-  border-top-color: white;
+  border-top-color: @bg-color-light;
   border-top-style: solid;
   border-top-width: 1px;
+}
+
+.tweak-parameter-limit {
+  font-style: italic;
 }
 

@@ -14,16 +14,18 @@ Template.rangeParameter.helpers
     @param.getName()
 
   label: ->
-    parts = [@param.getDisplayName()]
     state = Template.instance()._state.get()
     if state != STATE_VALUE
-      parts.push ' ('
-      parts.push switch state
-        when STATE_MIN then 'min'
-        when STATE_MAX then 'max'
-        when STATE_STEP then 'step'
-      parts.push ')'
-    parts.join ''
+      switch state
+        when STATE_MIN then 'Min'
+        when STATE_MAX then 'Max'
+        when STATE_STEP then 'Step'
+    else
+      @param.getDisplayName()
+
+  labelClass: ->
+    if Template.instance()._state.get() != STATE_VALUE
+      'tweak-parameter-limit'
 
   template: ->
     switch Template.instance()._state.get()
