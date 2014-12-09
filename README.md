@@ -150,7 +150,7 @@ it's in. For example, `cirle:radius`. A parameter's full name must be unique.
 
 ```JSON
 {
-  "name": "red"
+  "name": "red",
   "type": "range",
   "value": {
     "min": 0,
